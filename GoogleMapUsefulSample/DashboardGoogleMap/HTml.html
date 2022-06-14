@@ -1,0 +1,1327 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+   <link href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css" rel="stylesheet"/>
+ 
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet"/>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300&family=Open+Sans+Condensed:wght@300&family=Raleway&family=Roboto&display=swap"
+    rel="stylesheet"/>
+ 
+    <link rel="stylesheet" href="Stilos.css">
+  </link>
+  <title>Hello, world!</title>
+</head>
+
+<body>
+  <div class="d-flex">
+    <div id="sidebar-container" class="bg-primary">
+      <div class="logo">
+        <h4 class="text-light font-wheight-bold">VreyTech</h4>
+      </div>
+      <div class="menu nav" role="tablist">
+        <a class="d-block p-3 text-light"id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true"><i class="icon ion-md-apps mr-2 lead"></i> Inicio</a>
+        <a class="d-block p-3 text-light"id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"><i class="icon ion-md-people mr-2 lead"></i>Mis Deliverys</a>
+        <a href="#" class="d-block p-3 text-light "><i class="icon ion-md-home mr-2 lead"></i> Ordenes</a>
+        <a href="#" class="d-block p-3 text-light"><i class="icon ion-md-person mr-2 lead"></i> Mis Tarifas</a>
+        <a href="#" class="d-block p-3 text-light"><i class="icon ion-md-settings mr-2 lead"></i> Configuracion</a>
+        <a href="#" class="d-block p-3 text-light"><i class="icon ion-md-person mr-2 lead"></i> Mi Perfil</a>
+        <a href="#" class="d-block p-3 text-light"><i class="icon ion-md-settings mr-2 lead"></i> Configuracion</a>           
+      </div>    
+    </div>
+    <div class="w-100"> 
+      <div id="content">        
+        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom sticky-top">
+          <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="my-2 my-lg-0">
+              <button class="btn btn-primary" onclick="location.reload()"><i class="icon ion-md-refresh"></i> Refrescar pantalla</button>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <img src="data:image/jpeg;base64,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"
+                      class="img-fluid avatar rounded-circle mr-2" />
+                    Empresa de envio
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Mi perfil</a>
+                    <a class="dropdown-item" href="#">Deliverys</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Cerrar sesión</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <div class="tab-content"id="myTabContent">
+          <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <section class="py-3">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-lg-9">
+                    <h1 class="font-weight-bold mb-0">Buenas Eddimir Veloz Reynoso</h1>
+                    <p class="lead text-muted">Revisa la ultima información</p>
+                  </div>
+                  <div class="col-lg-3 d-flex">
+                    <button class="btn btn-primary w-100 align-self-center">Deliverys disponibles</button>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section class="bg-mix">
+              <div class="container-fluid">
+                <div class="card rounded-0">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-lg-3 col-md-6 d-flex stat my-3">
+                        <div class="mx-auto">
+                          <h6 class="text-muted">Deliverys disponibles</h6>
+                          <h3 class="font-weight-bold">10</h3>
+                          <h6 class="text-success"><i class="icon ion-md-arrow-dropup-circle"></i> 50.50%</h6>
+                        </div>
+                      </div>
+                      <div class="col-lg-3 col-md-6  d-flex stat my-3">
+                        <div class="mx-auto">
+                          <h6 class="text-muted">No. Deliverys activos</h6>
+                          <h3 class="font-weight-bold">7</h3>
+                          <h6 class="text-success"><i class="icon ion-md-arrow-dropup-circle"></i> 25.50%</h6>
+                        </div>
+    
+                      </div>
+                      <div class="col-lg-3 col-md-6 d-flex stat my-3">
+                        <div class="mx-auto">
+                          <h6 class="text-muted">No. Tarifas activas</h6>
+                          <h3 class="font-weight-bold">3</h3>
+                          <h6 class="text-success"><i class="icon ion-md-arrow-dropup-circle"></i> 75.50%</h6>
+                        </div>
+                      </div>
+                      <div class="col-lg-3 col-md-6 d-flex my-3">
+                        <div class="mx-auto">
+                          <h6 class="text-muted">Ordenes en espera</h6>
+                          <h3 class="font-weight-bold">50</h3>
+                          <h6 class="text-success"><i class="icon ion-md-arrow-dropup-circle"></i> 15.50%</h6>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section class="bg-grey">
+              <div class="container-fluid">
+                <div class="row">
+                 <!--
+ <div class="col-lg-8 my-3">
+                    <div class="card rounded-0">
+                      <div class="card-header bg-light mb-2">
+                        <h6 class="font-weight-bold mb-0">Demo  de Ordenes de compra</h6>
+                      </div>
+                      <div class="car-body">
+                        <div class="container">
+                          <table class="table table-responsive table-hover table-bodered" id="example">
+                            <thead>
+                              <tr>
+                                <th>#</th>
+                                <th>Usuario final</th>
+                                <th>Estado</th>
+                                <th>...</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>1</td>
+                                <td>Parque@example.com</td>
+                                <td>En espera</td>
+                                <td>
+                                  <button type="button" class="btn btn-success btn-sm">Ver detalle</button>
+                                  <button type="button" class="btn btn-primary btn-sm">Agsinar delivery</button> 
+                                  <button type="button" class="btn btn-primary btn-sm" name="verubicacion" data-lat="19.797740" data-lon="-70.6933004">Ver ubicación</button> 
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>2</td>
+                                <td>Frico@example.com</td>
+                                <td>En espera</td>
+                                <td>
+                                  <button type="button" class="btn btn-success btn-sm">Ver detalle</button>
+                                  <button type="button" class="btn btn-primary btn-sm">Agsinar delivery</button> 
+                                  <button type="button" class="btn btn-primary btn-sm" name="verubicacion" data-lat="19.91195630593657" data-lon="-71.06331142790702">Ver ubicación</button> 
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>3</td>
+                                <td>LongBeach.com</td>
+                                <td>En espera</td>
+                                  <td>
+                                    <button type="button" class="btn btn-success btn-sm">Ver detalle</button>
+                                    <button type="button" class="btn btn-primary btn-sm">Agsinar delivery</button>   
+                                    <button type="button" class="btn btn-primary btn-sm" name="verubicacion" data-lat="19.793407331344028" data-lon="-70.67682923151956">Ver ubicación</button> 
+                                  </td>                            
+                              </tr>
+                              <tr>
+                                <td>4</td>
+                                <td>LuisGinebra.com</td>
+                                <td class="text-primary">En espera</td>
+                                <td>
+                                  <button type="button" class="btn btn-success btn-sm">Ver detalle</button>
+                                  <button type="button" class="btn btn-primary btn-sm">Agsinar delivery</button>
+                                  <button type="button" class="btn btn-primary btn-sm" name="verubicacion" data-lat="19.78993108464135" data-lon="-70.67938278749867">Ver ubicación</button> 
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>5</td>
+                                <td>LosPinos.com</td>
+                                <td class="text-primary">En espera</td>
+                                <td>
+                                  <button type="button" class="btn btn-success btn-sm">Ver detalle</button>
+                                  <button type="button" class="btn btn-primary btn-sm">Agsinar delivery</button>
+                                  <button type="button" class="btn btn-primary btn-sm" name="verubicacion" data-lat="19.773737570215477" data-lon="-70.66232393834746">Ver ubicación</button> 
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>6</td>
+                                <td>Cristal@example.com</td>
+                                <td class="text-primary">En espera</td>
+                                <td>
+                                  <button type="button" class="btn btn-success btn-sm">Ver detalle</button>
+                                  <button type="button" class="btn btn-primary btn-sm">Agsinar delivery</button> 
+                                  <button type="button" class="btn btn-primary btn-sm" name="verubicacion" data-lat="19.778523106712917" data-lon="-70.66828917094287">Ver ubicación</button> 
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>7</td>
+                                <td>SuiteAlta@e.com</td>
+                                <td class="text-primary">En espera</td>
+                                <td>
+                                  <button type="button" class="btn btn-success btn-sm">Ver detalle</button>
+                                  <button type="button" class="btn btn-primary btn-sm">Agsinar delivery</button> 
+                                  <button type="button" class="btn btn-primary btn-sm" name="verubicacion" data-lat="19.775114052526884" data-lon="-70.68671490282378">Ver ubicación</button> 
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>8</td>
+                                <td>Teleferico@example.com</td>
+                                <td class="text-primary">En espera</td>
+                                <td>
+                                  <button type="button" class="btn btn-success btn-sm">Ver detalle</button>
+                                  <button type="button" class="btn btn-primary btn-sm">Agsinar delivery</button>  
+                                  <button type="button" class="btn btn-primary btn-sm" name="verubicacion" data-lat="19.788500962601198" data-lon="-70.7080867439053">Ver ubicación</button> 
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>9</td>
+                                <td>ok@example.com</td>
+                                <td class="text-primary">En espera</td>
+                                <td>
+                                  <button type="button" class="btn btn-success btn-sm">Ver detalle</button>
+                                  <button type="button" class="btn btn-primary btn-sm">Agsinar delivery</button>  
+                                  <button type="button" class="btn btn-primary btn-sm" name="verubicacion" data-lat="19.79443687933903" data-lon="-70.70484663576855">Ver ubicación</button> 
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>10</td>
+                                <td>Otra@example.com</td>
+                                <td class="text-primary">En espera</td>
+                                <td>
+                                  <button type="button" class="btn btn-success btn-sm">Ver detalle</button>
+                                  <button type="button" class="btn btn-primary btn-sm">Agsinar delivery</button> 
+                                  <button type="button" class="btn btn-primary btn-sm" name="verubicacion" data-lat="19.780824375425734" data-lon="-70.69844439654615">Ver ubicación</button> 
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>11</td>
+                                <td>Utesa@example.com</td>
+                                <td class="text-primary">En espera</td>
+                                <td>
+                                  <button type="button" class="btn btn-success btn-sm">Ver detalle</button>
+                                  <button type="button" class="btn btn-primary btn-sm">Agsinar delivery</button>                              
+                                  <button type="button" class="btn btn-primary btn-sm" name="verubicacion" data-lat="19.79006173822822" data-lon="-70.7062657178255">Ver ubicación</button> 
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>12</td>
+                                <td>Fredy@example.com</td>
+                                <td class="text-primary">En espera</td>
+                                <td>
+                                  <button type="button" class="btn btn-success btn-sm">Ver detalle</button>
+                                  <button type="button" class="btn btn-primary btn-sm">Agsinar delivery</button>    
+                                  <button type="button" class="btn btn-primary btn-sm" name="verubicacion" data-lat="19.794372324238708" data-lon="-70.71453765052055">Ver ubicación</button> 
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>               
+                      </div>
+                    </div>
+                  </div>
+
+                 -->
+                  <div class="col-lg-12 my-3">
+                    <div class="card rounded-0 pt-0">
+                      <div class="card-header bg-light">
+                    
+                        <h6 class="font-weight-bold mb-0">Localizacion en tiempo real</h6>
+                      </div>
+                      <div class="card-body">
+                      <div class=" border-buttom pb-2">
+                          <div id="map"></div>     
+                        
+                          <div style="display:none;" id="legend">
+                            <div class="alert alert-success" id="alertgooglemap" role="alert" style="display:none;width: 150px;text-align: center;font-weight: bold;">
+                          </div> 
+                         <!--<h3></h3>--> 
+                        </div>
+                      </div> 
+                      <button id="ubicacionactual" data-clientedemo = '{"lat": 19.79006173822822, "lng": -70.7062657178255}' class="btn btn-primary w-100">
+                        Seguimiento Demo                 
+                      </button>
+                      <button id="detener"
+                        class="btn btn-primary w-100">
+                        Detener seguimiento
+                      </button>
+                      <!--<div  class="d-flex align-items-center justify-content-center">
+                          <span  id="spinnermap" class="spinner-border text-success position-absolute" style="top:45px">
+                          </span>-->
+                      </div>                
+                      </div>              
+                    </div>
+                  </div>
+                </div>             
+            </section>
+            </div> 
+            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+              <section class="py-3 bg-mix">
+       
+                <div class="container-fluid"> 
+                  <h2>Nuevo delivery</h2>
+                        <div class="card">
+                            <div class="card-body">
+                              <form>
+                                <div class="form-row">
+                                  <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="col-md-12">...</label>
+                                        <div class="col-md-12">
+                                              <div class="btn-group" role="group" aria-label="Basic example">
+                                                <button type="button" class="btn btn-secondary">Agregar img</button>
+                                                <button type="button" class="btn btn-secondary"id="fotografia" data-toggle="modal" data-target="#exampleModalCenter">Hacer foto</button>
+                                              </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group center-block">
+                                        <div class="col-md-12">
+                                            <img class="img-fluid center-block img-thumbnail imagepreview" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22200%22%20height%3D%22200%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_17534be7c36%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A10pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_17534be7c36%22%3E%3Crect%20width%3D%22200%22%20height%3D%22200%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2274.421875%22%20y%3D%22104.5%22%3E200x200%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                  <div class="form-row">
+                                  <div class="form-group col-md-6">
+                                    <input type="email" class="form-control" id="a" placeholder="Nombre de delivery">
+                                  </div>
+                                  <div class="form-group col-md-6">
+                                    <input type="password" class="form-control" id="b" placeholder="Apellidos de delivery">
+                                  </div>
+                                  <div class="form-group col-md-6">
+                                    <input type="password" class="form-control" id="c" placeholder="Telefono de delivery">
+                                  </div>
+                                  <div class="form-group col-md-6">
+                                    <input type="password" class="form-control" id="d" placeholder="Celular de delivary">
+                                  </div>
+                                  </div>
+                                  
+                                  
+                                  <div class="form-group">
+                                    <input type="password" class="form-control" id="e" placeholder="Celular de delivary">
+                                  </div>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <input type="email" class="form-control" id="f" placeholder="Nombre de delivery">
+                                  </div>
+                                  <div class="form-group col-md-3">
+                                    <input type="password" class="form-control" id="g" placeholder="Apellidos de delivery">
+                                  </div>
+                                  <div class="form-group col-md-4">
+                                    <input type="password" class="form-control" id="h" placeholder="Telefono de delivery">
+                                  </div>
+                                  <div class="form-group col-md-3">
+                                    <input type="password" class="form-control" id="i" placeholder="Celular de delivary">
+                                  </div>
+                                  <div class="form-group col-md-6">
+                                    <input type="password" class="form-control" id="j" placeholder="Celular de delivary">
+                                  </div>
+                                </div>
+                                <div class="form-row">
+                                  <div class="form-group col-md-6">                               
+                                    <input type="text" class="form-control" id="k" placeholder="Cedula">
+                                  </div>
+                                  <div class="form-group col-md-6">
+                                    <input type="text" class="form-control" id="l" placeholder="Direccion">
+                                  </div>
+                                </div>
+                                </div>
+                            
+                                <button type="submit" class="btn btn-primary">Agregar delivery</button>
+                              </form>
+                            </div>
+                        </div>
+                  
+                </div>
+              </section>
+             <!-- <section class="bg-grey">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-lg-12 my-3">
+                      <div class="card rounded-0">
+                        <div class="card-header bg-light mb-2">
+                          <h6 class="font-weight-bold mb-0">Demo  de Ordenes de compra</h6>
+                        </div>
+                        <div class="car-body">
+                          <div class="container">
+                            <table class="table table-responsive table-hover table-bodered" id="example">
+                              <thead>
+                                <tr>
+                                  <th>#</th>
+                                  <th>Usuario final</th>
+                                  <th>Estado</th>
+                                  <th>...</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>1</td>
+                                  <td>Parque@example.com</td>
+                                  <td>En espera</td>
+                                  <td>
+                                    <button type="button" class="btn btn-success btn-sm">Ver detalle</button>
+                                    <button type="button" class="btn btn-primary btn-sm">Agsinar delivery</button> 
+                                    <button type="button" class="btn btn-primary btn-sm" name="verubicacion" data-lat="19.797740" data-lon="-70.6933004">Ver ubicación</button> 
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>2</td>
+                                  <td>Frico@example.com</td>
+                                  <td>En espera</td>
+                                  <td>
+                                    <button type="button" class="btn btn-success btn-sm">Ver detalle</button>
+                                    <button type="button" class="btn btn-primary btn-sm">Agsinar delivery</button> 
+                                    <button type="button" class="btn btn-primary btn-sm" name="verubicacion" data-lat="19.91195630593657" data-lon="-71.06331142790702">Ver ubicación</button> 
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>3</td>
+                                  <td>LongBeach.com</td>
+                                  <td>En espera</td>
+                                    <td>
+                                      <button type="button" class="btn btn-success btn-sm">Ver detalle</button>
+                                      <button type="button" class="btn btn-primary btn-sm">Agsinar delivery</button>   
+                                      <button type="button" class="btn btn-primary btn-sm" name="verubicacion" data-lat="19.793407331344028" data-lon="-70.67682923151956">Ver ubicación</button> 
+                                    </td>                            
+                                </tr>
+                                <tr>
+                                  <td>4</td>
+                                  <td>LuisGinebra.com</td>
+                                  <td class="text-primary">En espera</td>
+                                  <td>
+                                    <button type="button" class="btn btn-success btn-sm">Ver detalle</button>
+                                    <button type="button" class="btn btn-primary btn-sm">Agsinar delivery</button>
+                                    <button type="button" class="btn btn-primary btn-sm" name="verubicacion" data-lat="19.78993108464135" data-lon="-70.67938278749867">Ver ubicación</button> 
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>5</td>
+                                  <td>LosPinos.com</td>
+                                  <td class="text-primary">En espera</td>
+                                  <td>
+                                    <button type="button" class="btn btn-success btn-sm">Ver detalle</button>
+                                    <button type="button" class="btn btn-primary btn-sm">Agsinar delivery</button>
+                                    <button type="button" class="btn btn-primary btn-sm" name="verubicacion" data-lat="19.773737570215477" data-lon="-70.66232393834746">Ver ubicación</button> 
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>6</td>
+                                  <td>Cristal@example.com</td>
+                                  <td class="text-primary">En espera</td>
+                                  <td>
+                                    <button type="button" class="btn btn-success btn-sm">Ver detalle</button>
+                                    <button type="button" class="btn btn-primary btn-sm">Agsinar delivery</button> 
+                                    <button type="button" class="btn btn-primary btn-sm" name="verubicacion" data-lat="19.778523106712917" data-lon="-70.66828917094287">Ver ubicación</button> 
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>7</td>
+                                  <td>SuiteAlta@e.com</td>
+                                  <td class="text-primary">En espera</td>
+                                  <td>
+                                    <button type="button" class="btn btn-success btn-sm">Ver detalle</button>
+                                    <button type="button" class="btn btn-primary btn-sm">Agsinar delivery</button> 
+                                    <button type="button" class="btn btn-primary btn-sm" name="verubicacion" data-lat="19.775114052526884" data-lon="-70.68671490282378">Ver ubicación</button> 
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>8</td>
+                                  <td>Teleferico@example.com</td>
+                                  <td class="text-primary">En espera</td>
+                                  <td>
+                                    <button type="button" class="btn btn-success btn-sm">Ver detalle</button>
+                                    <button type="button" class="btn btn-primary btn-sm">Agsinar delivery</button>  
+                                    <button type="button" class="btn btn-primary btn-sm" name="verubicacion" data-lat="19.788500962601198" data-lon="-70.7080867439053">Ver ubicación</button> 
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>9</td>
+                                  <td>ok@example.com</td>
+                                  <td class="text-primary">En espera</td>
+                                  <td>
+                                    <button type="button" class="btn btn-success btn-sm">Ver detalle</button>
+                                    <button type="button" class="btn btn-primary btn-sm">Agsinar delivery</button>  
+                                    <button type="button" class="btn btn-primary btn-sm" name="verubicacion" data-lat="19.79443687933903" data-lon="-70.70484663576855">Ver ubicación</button> 
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>10</td>
+                                  <td>Otra@example.com</td>
+                                  <td class="text-primary">En espera</td>
+                                  <td>
+                                    <button type="button" class="btn btn-success btn-sm">Ver detalle</button>
+                                    <button type="button" class="btn btn-primary btn-sm">Agsinar delivery</button> 
+                                    <button type="button" class="btn btn-primary btn-sm" name="verubicacion" data-lat="19.780824375425734" data-lon="-70.69844439654615">Ver ubicación</button> 
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>11</td>
+                                  <td>Utesa@example.com</td>
+                                  <td class="text-primary">En espera</td>
+                                  <td>
+                                    <button type="button" class="btn btn-success btn-sm">Ver detalle</button>
+                                    <button type="button" class="btn btn-primary btn-sm">Agsinar delivery</button>                              
+                                    <button type="button" class="btn btn-primary btn-sm" name="verubicacion" data-lat="19.79006173822822" data-lon="-70.7062657178255">Ver ubicación</button> 
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>12</td>
+                                  <td>Fredy@example.com</td>
+                                  <td class="text-primary">En espera</td>
+                                  <td>
+                                    <button type="button" class="btn btn-success btn-sm">Ver detalle</button>
+                                    <button type="button" class="btn btn-primary btn-sm">Agsinar delivery</button>    
+                                    <button type="button" class="btn btn-primary btn-sm" name="verubicacion" data-lat="19.794372324238708" data-lon="-70.71453765052055">Ver ubicación</button> 
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>               
+                        </div>
+                      </div>
+                    </div>
+                     
+              </section>-->
+            </div>
+        </div>
+
+        </div>
+                    
+      </div>    
+    </div>
+  </div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="StopStream()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">        
+        <div class="embed-responsive-item">
+          <div class="row"> 
+            <div class="col-md-12">  
+              <p class="text-info">
+                En esta seccion, podra utilizar la cama de su dispositivo deseado
+                , para tomar una captura y poder poner como foto de perfil.!!!
+              </p>
+              <div class="form-group">
+                  <label>Fuente de video:</label>
+                   <select id="dipositivos" class="form-control"></select>                
+              </div>    
+            </div>                        
+             <div class="col-md-6 p-0">             
+                 <video id="player" autoplay width="230" height="150"></video> 
+             </div>
+             <div class="col-md-6">
+               <canvas id="snapshot" width="220" height="150"></canvas>  
+             </div>
+          </div>        
+        </div>
+      </div>
+      <div class="modal-footer d-flex">
+           <button id="capture" class="btn btn-primary">Capturar fotografía</button> 
+         <button id="seleccionarfoto" class="btn btn-success" >Seleccionar fotografía</button>  
+      </div>
+    </div>
+  </div>
+</div>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
+<style>
+  #legend {
+    background: #fff;
+    padding: 10px;
+    margin: 10px;
+    border: 3px solid #000;
+  }
+</style>
+<!--Data table plugin-->
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+
+
+<script>
+
+/*$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+      alert(hola)
+   //    localStorage.setItem('activetag',$(e.target).attr("href"));
+     })*/
+  $(document).ready(function(){
+    $('table').DataTable({
+      "bLengthChange":false
+    });
+
+    $('.menu a').on('click', function (e) {
+       if($(e.target).attr("href").length > 1){
+         localStorage.setItem('activetag',$(e.target).attr("href"));
+       }   
+     });
+    
+    var activetag = localStorage.getItem('activetag');
+    if(activetag){      
+     // $('.menu a[href="'+ activetag+'"]').tab('show')
+    }
+
+    /*$.get("http://ipinfo.io", function (response) {
+      console.log(response.city, response.region, response.country);
+    }, "jsonp");*/
+  });
+</script>
+
+<!--Esto es por defecto-->
+
+<script defer 
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChtZ9DGD4Bebp3_k7cYI4mzabXQsJnKpA&callback=initMap&libraries=geometry">
+</script>
+<script>
+var mapa = document.getElementById("map");
+var ubicacion = document.getElementById("ubicacionactual");
+
+/*function initMap() { 
+   
+   SettingGoogleMap(ubicacionDovinet) 
+}*/
+
+/*ubicacion.addEventListener("click", function(){
+   if (navigator.geolocation ){ navigator.geolocation.getCurrentPosition(success, fail); }
+   else{ alert("Este navegador no soporta la geolocalizacion"); }
+
+   function success(position) { SettingGoogleMap({lat:position.coords.latitude, long:position.coords.longitude});}  
+   function fail(){ alert("Este navegador no soporta la geolocalizacion"); }
+});
+
+document.querySelectorAll('button[name=verubicacion]').forEach((elemento) => {
+   elemento.addEventListener('click',(el)=>{             
+     try{
+        const ubicaction = {lat: el.dataset.lat, long: el.dataset.lon}; 
+        SettingGoogleMap(ubicaction);
+     }catch(e){
+        alert("La ubicación del destinatario, no es valida."); 
+     }
+   });
+});
+
+
+ //var spinnergooglemap = document.getElementById("spinnermap"); 
+ function SettingGoogleMap(position){
+    //spinnergooglemap.style.visibility = 'visible';
+    var latlng = new google.maps.LatLng(position.lat,position.long);
+    var map = new google.maps.Map(mapa, { center: latlng, zoom: 11});    
+    GooglemapMaker(latlng,map);    
+    GooglemapGeocoder(latlng,map);   
+    GoogleMaoSetingHeight();
+}
+
+function GooglemapMaker(latlng,map){ const marker = new google.maps.Marker({ position: latlng, map: map });}
+
+function GooglemapGeocoder(latlng,map) {
+  const geocoder = new google.maps.Geocoder();
+
+  geocoder.geocode({ location: latlng }, (results, status) => {        
+     if (status === "OK") { if (results[0]) { GoogleInfoWindow(map,latlng,results[0].formatted_address);} 
+     else { alert("Resultado no encontrados para direccion actual");} }
+     else { alert("Geolocalizacion ha fallado, debido a que aun no se ha actualizado en su servicio de google o algo anda mal.\n: " + status); }
+  }); 
+}
+
+function GoogleInfoWindow (map,latlng,adrres) {
+  var infoWindow = new google.maps.InfoWindow({position: latlng});
+  infoWindow.setContent(adrres); infoWindow.open(map);
+};
+
+function GoogleMaoSetingHeight() {
+ //Table height and set to map 
+  var element = document.getElementById("example").offsetHeight;
+  //map height
+  mapa.style.height = element > 600 ? "593px" : element + "px";
+};
+
+*/
+
+</script>
+<script>
+ // const client = 'c', deliverie ='d', bussines = 'b';
+ let map;//firsttime = false;
+  /*const locations = [
+   {lat:19.794767, lng:-70.687114, type:deliverie,name:"Demo"},
+    {lat: 19.79006173822822, lng: -70.7062657178255, type:client,name:"Mariely Lendof"}, 
+     {lat: 19.775114052526884, lng:-70.68671490282378, type:bussines, name:"Eddimir Veloz Reynoso" }
+  ];*/
+
+    
+    /*const icons = {
+       Deliverie: {
+       name:'Deliveri',
+       icon: "http://maps.google.com/mapfiles/kml/shapes/cycling.png",
+      },
+       Bussines: {
+       name:'Negocio',
+       icon: "http://maps.google.com/mapfiles/kml/shapes/ranger_station.png",
+      },
+       Customer: {
+       name: 'Cliente',
+       icon:  "http://maps.google.com/mapfiles/kml/shapes/toilets.png",
+    }
+   };*/
+
+  function initMap() {
+    const ubicacionDovinet = new google.maps.LatLng(19.794767, -70.687114)
+    map = new google.maps.Map(mapa, {
+      zoom: 7,
+      center: ubicacionDovinet,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+    mapa.style.height = "600px";
+  }
+    let googlemapseguimiento;
+    
+    const ubicacionboton = document.getElementById('ubicacionactual');
+    ubicacionboton.addEventListener('click', function(eve) {
+     // googlemapseguimiento = null;
+      //A. Call class 
+      //1. map: is map initizalized
+      //2. time for trancking, by example 50 go to be like 50 * 1000 = 5 second
+      //3. show legend description, Delivery with icon...
+      googlemapseguimiento = new GoogleMapUbicationTracker(map, 10, true);
+      
+      //B. Set url data delivery... like:
+      const url = './JsonDataDemo.json';
+     
+      //C. Getting customer from data attribute html or from wherever
+      let cliendata = $(eve.target).data('clientedemo');      
+    
+      //D. Object with next type is required, for good working:
+      //[{ lat: 0, lng: 0, type: GoogleMapUbicationTracker.Types.Client, name: null }]
+      //lat = latitude position, lng = longitude, type = for working with icons, use pre defined types
+      //... name = label
+     
+      //E. making types...
+      let clientubication = {'lat': cliendata.lat, 'lng': cliendata.lng,
+        type: GoogleMapUbicationTracker.Types.Client, name: "Mariely Lendof"
+      };
+      
+      //optional, we can add more customers too...
+      let bussines = { lat: 19.775114052526884, lng: -70.68671490282378,
+         type: GoogleMapUbicationTracker.Types.Bussines, name: "Eddimir Veloz Reynoso"};
+
+      var arr = new Array();
+      arr.push(clientubication);
+      arr.push(bussines);
+      //F.
+      //call method and passing url and object
+      googlemapseguimiento.TrackGoogleMapUbication(url, arr);
+      //
+      //If we wanna stop tracking ubication call:
+       //googlemapseguimiento.TrackStopGoogleMap();
+    });
+
+    document.getElementById("detener").addEventListener("click", () =>{
+      googlemapseguimiento.TrackStopGoogleMap();
+    });
+
+
+  class GoogleMapUbicationTracker {
+    #showlengend;
+    #secondsforreloadmap;
+    #mapinitialized;
+    #linePath;
+    #firsttime;
+    #markers;
+    #interval;
+    #IsDelivery;
+
+    //Like enums in c#
+    static Types = { "Client": 0, "Delivery": 1, "Bussines": 2 };
+
+    constructor(mapinitialized, SecondFormReloadmap = 10, showlengend = false,isdelivery = false) {
+      this.#mapinitialized = mapinitialized;
+      this.#secondsforreloadmap = SecondFormReloadmap * 1000;
+      this.#showlengend = showlengend;
+      this.#firsttime = false;
+      //is true, go to update deliveru ubication else get position...
+      this.#IsDelivery = isdelivery;
+    }
+
+    //#counter = 0;
+
+    TrackGoogleMapUbication(UrlAjaxcalltrack,
+      ubications = [{ lat: 0, lng: 0, type: GoogleMapUbicationTracker.Types.Client, name: null }]) {
+
+      //interval timer
+      let temptime = this.#firsttime ? this.#secondsforreloadmap : 1000;
+      //new array is like = []
+      let locationarr = new Array();
+
+       ubications.filter(c => c.lat != 0 && c.lng != 0 && c.name != null).forEach((item) => {
+         locationarr.push(item);
+       });
+
+       //Si es delivery actualiza el campo, de ubicacion cada x tiempo...
+      if (this.#IsDelivery) {
+        if (this.#firsttime) {
+           let confirmation = confirm("¿Te aseguraste de pasar la url junto al identificador del usuario que deseas actualizar?");
+          if (confirmation == false) { return;}
+        }
+        else {this.#updateDeliveryLocation(locationarr); }
+      }
+      else{ this.#getDeliveryLocation(UrlAjaxcalltrack,locationarr); }
+      //Here is the magic, the method is recursive n times
+      this.#interval = setTimeout(() => { this.TrackGoogleMapUbication(UrlAjaxcalltrack, ubications) }, temptime);
+    }
+ 
+    #updateDeliveryLocation(locationarr) {
+      this.#getCurrentLocation(locationarr);
+    }
+
+    #getCurrentLocation(locationsset) {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+          this.#setAndUpdatepPosition(position, locationsset);
+        });
+      } else { alert("Geolocation is not supported by this browser."); }
+    }
+
+   //estableciendo para actualizar delivery...
+    #setAndUpdatepPosition(coor, locationsset) {
+      let currentposition = {
+        lat: coor.coords.latitude,
+        lng: coor.coords.longitude
+      };
+
+      //${ uri } /${itemId}
+      fetch(`${uri}`, {
+        method: 'PUT',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(currentposition)
+      }).then(() => {
+        //getting delivery position, for send to map
+        locationsset.push(currentposition);
+        //
+        this.#PreparingGoogleMap(locationsset);
+      }).catch(error => {
+        this.TrackStopGoogleMap();
+        alert(error);
+      });
+    }
+    
+    //Get current location delivery
+    #getDeliveryLocation(UrlAjaxcalltrack, locationarr) {
+      //Get fetch request, by url json data, must be a object type, pre defined in the context
+      fetch(UrlAjaxcalltrack).then(response => response.json())
+        .then(data => {
+          //Making new object
+          let delivery = {
+            lat: data.lat, lng: data.lng,
+            type: GoogleMapUbicationTracker.Types.Delivery,
+            name: data.name
+          };
+
+          locationarr.push(delivery);
+          //
+          this.#PreparingGoogleMap(locationarr);
+
+        }).catch((err) => {
+          //detiene seguimiento
+          this.TrackStopGoogleMap();
+          alert(err);
+        });
+    }
+  
+
+
+    #PreparingGoogleMap(locationarr) {
+      if (this.#linePath) {
+        this.#linePath.setMap(null);
+      }
+
+      if (this.#markers) {
+        for (let i = 0; i < this.#markers.length; i++) {
+          //Cheking marker is trancking
+          if(this.#markers[i].IsTrancking == true){
+            this.#markers[i].setMap(null);
+          }
+        }
+      }
+      //Marking again...
+      this.#SettingGoogleMapUbication(locationarr);
+    }
+
+    //Tipos definidos, para e buen funcionamiento del rastreo
+    #SettingGoogleMapUbication(locationarr) {
+      try {
+        
+        if(locationarr == null || locationarr.length == 0){
+          throw "Invalid action, before you must add the collections follow up";
+        }
+
+        const geocoder = new google.maps.Geocoder();
+        const infowindow = new google.maps.InfoWindow();
+
+        let pdelivery;
+        let pcliente;
+        let mapa = this.#mapinitialized;
+        let marker = null;
+        let coordsline = new Array();
+        this.#markers = new Array();
+
+        for (let i = 0; i < locationarr.length; i++) {
+
+          let type = locationarr[i].type;
+          let latitude = locationarr[i].lat;
+          let longitude = locationarr[i].lng;
+          let namedesc = locationarr[i].name;
+          let icond = this.#TypeIcono(type);
+
+          let location = new google.maps.LatLng(latitude, longitude);
+          //ubicacion de marcardor(es) en el mapa...       
+          marker = new google.maps.Marker({ position: location, icon: icond.icon, map: mapa });
+          //Adding custom property to marker
+          marker.IsTrancking = type === GoogleMapUbicationTracker.Types.Delivery;
+          
+            //adding element to arr markers
+            this.#markers.push(marker);
+            //trigger event on click
+            google.maps.event.addListener(marker, 'click', (function (marker, i) {
+              return () => {
+                geocoder.geocode({ location: location }, (results, status) => {
+                  if (status === "OK" && results[0]) {
+
+                    let descrip = icond.typename === "Delivery" ?
+                     `<div style='float:left;'><img style="max-width:50px" src='http://i.stack.imgur.com/g672i.png'></div><div style='float:right; padding: 10px;'><b>Delivery:</b><br/>${namedesc}</div>`
+                     :`<div style='padding: 10px;'><b>${icond.typename}:</b><br/>${namedesc}<br/>809-865-5222</div>`;
+                    //infowindow.setContent(`<h5>${icond.typename}: ${namedesc}</h5> ${results[0].formatted_address}`);
+                    infowindow.setContent(descrip);
+                    
+                    infowindow.open(mapa, marker);
+                  }
+                });
+              }
+              //Pasando ámbito a la función, para que enlaze el valor correcto. Vamos a manipular la función anterior para que nuestro valor sea cada elemento de la matriz
+            })(marker, i));
+
+          var obj = { lat: latitude, lng: longitude };
+          if (type == GoogleMapUbicationTracker.Types.Delivery) { pdelivery = location; coordsline.push(obj); }
+          else if (type == GoogleMapUbicationTracker.Types.Client) { pcliente = location; coordsline.push(obj); }
+        }
+
+        this.#SettingOptions(marker, coordsline, locationarr);
+        if (pdelivery && pcliente) {
+          this.#GetDiferenceBetweenDistancePoint(pdelivery, pcliente);
+        }
+      }
+      catch (e) {
+        this.TrackStopGoogleMap();
+        alert(e);
+      }
+    }  
+    
+    TrackStopGoogleMap() {
+      clearTimeout(this.#interval);
+      this.#firsttime = false;
+    }
+
+    //Definir aquí, los iconos que se desean utilizar
+      #Icons = {
+        Customer: {
+          typename: 'Cliente',
+          icon: "http://maps.google.com/mapfiles/kml/shapes/toilets.png",
+          identification: 0
+        },
+        Deliverie: {
+          typename: 'Delivery',
+          icon: "http://maps.google.com/mapfiles/kml/shapes/cycling.png",
+          identification: 1
+        },
+        Bussines: {
+          typename: 'Negocio',
+          icon: "http://maps.google.com/mapfiles/kml/shapes/ranger_station.png",
+          identification: 2
+        }
+      };
+  
+  
+      //Metodos privados
+      #TypeIcono(type) {
+        switch (type) {
+          case GoogleMapUbicationTracker.Types.Delivery: {
+            return this.#Icons.Deliverie;
+          }
+          case GoogleMapUbicationTracker.Types.Bussines: {
+            return this.#Icons.Bussines;
+          }
+          default: {
+            return this.#Icons.Customer;
+          }
+        }
+      }
+
+      #SettingOptions(marker, coordsline, locationarr) {
+        if (this.#firsttime == false) {
+            this.#ViewPointBound(this.#markers, marker);
+                     
+          if (this.#showlengend) {
+             this.#LengendMap(locationarr);
+             //alert(1);
+          }
+          this.#firsttime = true;
+        }
+
+        //Pitando linea...
+        this.#linePath = new google.maps.Polyline({ path: coordsline, geodesic: true, strokeColor: '#FF0000' });
+
+        this.#linePath.setMap(map);
+      }
+
+      #ViewPointBound(markers) {
+        //  Create a new viewpoint bound
+        var bounds = new google.maps.LatLngBounds();
+        //  Go through each...
+        $.each(markers, (index, marker) => {
+          bounds.extend(marker.position);
+        });
+        //  Fit these bounds to the map
+        map.fitBounds(bounds);
+      }
+
+      //Queda abierta la posibilidad de agregar stilos a esta leyenda...
+      #LengendMap(locationarr) {
+        
+        const legend = document.getElementById("legend");
+        legend.style.display = 'block';
+        for (const key in this.#Icons) {
+          const type = this.#Icons[key];
+          //check
+          if (this.#IconAllowed(locationarr, type.identification)) {
+            const name = type.typename;
+            const icon = type.icon;
+            legend.appendChild(this.#CreateDivHelper(`<img style="max-width:50px" src="${icon}"> <span>${name}<span/>`));
+          }
+        }
+        legend.appendChild(this.#CreateDivHelper('<h6 id="distanciamapa"></h6>'));
+
+        map.controls[google.maps.ControlPosition.RIGHT_BOTTOM]
+          .push(legend);
+      }
+
+      //Cheking icons are allowed
+      #IconAllowed(locationarr, type) {
+        return locationarr.some(x => x.type == type);
+      }
+
+      #CreateDivHelper(desc) {
+        const div = document.createElement("div");
+        div.innerHTML = desc;
+        div.style.display = "flex";
+        div.style.justifyContent= "center";
+        div.style.alignItems="center";
+        return div;
+      }
+
+       //for workin feometry, with must add &libraries=geometry in the google map script 
+       #GetDiferenceBetweenDistancePoint(p1, p2) {
+        const legendidentifier = document.getElementById("distanciamapa");
+        if (p1 !== null && p2 !== null) {
+          //distance / 1000 == n (km)
+          let d = (google.maps.geometry.spherical.computeDistanceBetween(p1, p2) / 1000).toFixed(2);
+
+          //distanciamapa descripcion
+          legendidentifier.innerHTML = `Distancia: ${d}km`;
+
+         this.#alertbytype(d);        
+        }
+      }
+
+      #alertbytype(distancia) {
+        const distanciacercana = 5;
+        const alert = $('#alertgooglemap');
+        if (Number(distancia) < distanciacercana) {
+          let descripcion = this.#IsDelivery ? "Estas cerca del objectivo" : "El delivery está cerca del objectivo";
+          alert.html(descripcion);
+          alert.slideDown();
+        }  
+      }
+    }
+
+/*
+ function SettingGoogleMapUbication(){   
+    const geocoder = new google.maps.Geocoder();
+    const infowindow = new google.maps.InfoWindow();
+    
+    let marker = null, i, pdelivery, pcliente;
+    let markers = new Array();
+    
+     for (let i = 0; i < locations.length; i++) 
+     {                    
+         let location = new google.maps.LatLng(locations[i].lat, locations[i].lng);
+         let icono = TypeIcono(i).icon;
+         marker = new google.maps.Marker({position: location,icon: icono, map: map });
+         //...
+         markers.push(marker);
+         google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            return function() {        
+              geocoder.geocode({ location: location}, (results, status) => {  
+                if (status === "OK" && results[0]) { 
+                     let desccontent = DescInfoContent(i);
+                     infowindow.setContent("<h5>"+desccontent+"</h5>"+results[0].formatted_address);
+                     infowindow.open(map, marker);
+                 }
+            });         
+         }
+      })(marker, i));
+      
+      if(locations[i].type == deliverie){pdelivery = location; }
+      else if(locations[i].type == client){ pcliente = location; }
+    }
+
+  SettingOptions(markers,marker);
+  document.getElementById("distanciamapa").innerHTML = "Distancia de objetivo "+ calcDistance(pdelivery,pcliente)+"km";
+
+  //Simulacion de movimiento
+  locations[0].lat = locations[0].lat - (1/10000);
+  locations[0].lng = locations[0].lng - (1/10000);
+
+
+  setTimeout(()=>{ResetOptions(markers);}, 2000);
+ }
+ 
+
+function ResetOptions(markers){
+   RemoveLine();
+   for (let i = 0; i < markers.length; i++) {markers[i].setMap(null); }
+    //zz
+    SettingGoogleMapUbication();
+}
+
+function SettingOptions(markers,marker){
+  if(!firsttime){
+     ViewPointBound(markers,marker);
+     LengendMap();    
+     firsttime = true;
+  } 
+  LineBetweenPaths();
+}
+
+
+ function calcDistance(p1, p2) {          
+    var d = (google.maps.geometry.spherical.computeDistanceBetween(p1, p2) / 1000).toFixed(2);
+   return d;              
+}
+
+ function ViewPointBound(markers){
+   //  Create a new viewpoint bound
+   var bounds = new google.maps.LatLngBounds();
+   //  Go through each...
+   $.each(markers, function (index, marker) {
+     bounds.extend(marker.position);
+   });
+   //  Fit these bounds to the map
+    map.fitBounds(bounds);
+}
+
+function LengendMap(){  
+  const legend = document.getElementById("legend");
+  legend.style.display = 'block';
+   for (const key in icons) {
+     const type = icons[key];
+     const name = type.name;
+     const icon = type.icon;
+     const div = document.createElement("div");
+     div.innerHTML = '<img width:"10" src="' + icon + '"> ' + name;
+     legend.appendChild(div);
+    }
+    const div = document.createElement("div");
+     div.innerHTML = '<h6 id="distanciamapa"></h6>';
+     legend.appendChild(div);
+   map.controls[google.maps.ControlPosition.RIGHT_BOTTOM]
+   .push(legend);
+}
+
+function LineBetweenPaths(){
+   linePath = new google.maps.Polyline({
+   path: [{lat:locations[0].lat, lng:locations[0].lng},{lat:locations[1].lat,lng:locations[1].lng}],
+   geodesic: true,
+   strokeColor: '#FF0000'});
+   AddLineMap();
+}
+ 
+ function AddLineMap(){
+    linePath.setMap(map);
+ }
+
+ function RemoveLine(){
+  linePath.setMap(null);
+ }
+
+function GoogleMapSetingHeight() {
+  mapa.style.height = "600px";
+};*/
+  /*
+function GooglemapMaker(latlng,map){ alert(latlng); new google.maps.Marker({ position: latlng, map: map });}
+
+function GooglemapGeocoder(latlng,map) {
+  const geocoder = new google.maps.Geocoder();
+
+  geocoder.geocode({ location: latlng }, (results, status) => {        
+     if (status === "OK") { if (results[0]) { GoogleInfoWindow(map,latlng,results[0].formatted_address);} 
+     else { alert("Resultado no encontrados para direccion actual");} }
+     else { alert("Geolocalizacion ha fallado, debido a que aun no se ha actualizado en su servicio de google o algo anda mal.\n: " + status); }
+  }); 
+}
+
+function GoogleInfoWindow (map,latlng,adrres) {
+  var infoWindow = new google.maps.InfoWindow({position: latlng});
+  infoWindow.setContent(adrres); infoWindow.open(map);
+};
+
+
+ 
+*/
+
+</script>
+<script>
+/*
+  var player = document.getElementById('player'); 
+  var snapshotCanvas = document.getElementById('snapshot');
+  var captureButton = document.getElementById('capture');
+  var inputgtomatfoto = document.getElementById('fotografia');
+
+  //dispoditivos disponibles
+  var dispositivosselect = document.getElementById('dipositivos');
+  var seleccionarfoto = document.getElementById('seleccionarfoto'); 
+
+inputgtomatfoto.addEventListener('click', function(){
+     InitializeCamera();
+});
+  
+function InitializeCamera(){
+  if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    FillingSelectDesvices();   
+      FillingSelectDesvices.selectIndex = [...FillingSelectDesvices.options].
+        findIndex(optoin => option.text == stream.getVideoTracks()[0].label);
+    navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {        
+         //abrir modal aquí y hacer otros ajustes
+        //Seleccion de dispositivo para stream
+
+         player.srcObject = stream;
+        //video.play();
+    }).catch((err) =>{alert("Acceso denegado")}); 
+  }
+}
+
+  function FillingSelectDesvices(){
+     dispositivosselect.innerHTML = "";
+    //Obteniendo dispositivos disponibles y mostrando... puede que sea mediante usb...
+     navigator.mediaDevices
+      .enumerateDevices().then((dispositivos) =>
+     {       
+         for (var dispositivo of dispositivos){
+            var option = document.createElement('option');
+            option.value = dispositivo.deviceId;
+
+            if (dispositivo.kind == 'videoinput'){
+               option.text = dispositivo.label || `Camara ${dispositivosselect.length + 1}`;
+               dispositivosselect.append(option);
+            }
+         }
+     });
+  }
+
+  captureButton.addEventListener('click', function() {
+    var context = snapshot.getContext('2d');
+    // Draw the video frame to the canvas.
+    context.drawImage(player, 0, 0, snapshotCanvas.width, 
+        snapshotCanvas.height);      
+  });
+
+  seleccionarfoto.addEventListener('click', function(){
+     if(confirm("Seguro que desea seleccionar esta fotofrafía?")){
+        //Para detener todas las grabaciones... y poner imagen en placeholder
+        StopStream();
+      }
+  });
+
+  function StopStream(){
+    player.srcObject.getVideoTracks().forEach(track => track.stop());
+    preparingcanvasdatatopost();
+    CanvaToImageNormal();
+  }
+
+  function preparingcanvasdatatopost(){
+    snapshotCanvas.toBlob(function(x){
+      console.log(x);
+    });
+  }
+  
+  function CanvaToImageNormal(){
+    $("img").attr('src',snapshotCanvas.toDataURL("image/png"));
+  }*/
+</script>
